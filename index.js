@@ -2,6 +2,7 @@ const express  = require('express');
 const mongoose = require('mongoose');
 const cors     = require('cors');
 const morgan   = require('morgan');
+const path = require('path');
 
 const port = process.env.PORT        || 5000;
 const db   = process.env.MONGODB_URI || 'mongodb://localhost/notas';
@@ -16,6 +17,11 @@ mongoose
     console.log(`DB connected @ ${db}`);
   })
   .catch(err => console.error(`Connection error ${err}`));
+
+  app.use(express.static('public'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
 
 app.use(express.json());
 app.use(cors());

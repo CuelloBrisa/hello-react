@@ -14,8 +14,8 @@ const Note= ({ id, initialTitle, initialText, removeNote, updateNote}) => {
     const inputStyle = {
         backgroudColor: 'transparent',
         border: 'none',
-        fontSize: 1 +'rem',
-        marginBottom: 1 +'rem'
+        fontSize: 1.25 +'rem',
+        marginBottom: 0.75 +'rem'
     };
     const textareaStyle = {
         backgroudColor: 'transparent',
