@@ -1,6 +1,5 @@
 const express = require('express');
 const Note    = require('../models/Note');
-
 const router = express.Router();
 
 // GET /notes (todas las notas)
@@ -11,6 +10,7 @@ router.get('/notes', (req, res, next) => {
     .exec((err, notes) => {
       if (err) return next(err);
       notes = notes.map(note => ({
+        _id: note._id,
         title: note.title,
         text: note.text,
         details: {
